@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Imports JSF html-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+	
+	<h:head>
+		<title>Calculadora Length</title>
+	</h:head>
+	
+	<h:body>
+		<h:form id="frm">
+			<h:messages />
+			
+			<!-- Validador de tamanho de texto -->
+			<h:outputLabel value="Seu nome:" for="seuNome" />
+			<h:inputText
+			   			value="#{calculadoraBean.nome}" 
+			   			size="12" id="seuNome" 
+			   			label="Seu nome" 
+			   			required="true"
+						requiredMessage="Informe o seu nome."
+						validatorMessage="Informe o seu nome de 3 a 15 caracteres."
+						>
+				<f:validateLength minimum="3" maximum="15"/>
+			</h:inputText>
+			<br/>
+			<br/>
+			
+			<h:inputText size="12" value="#{calculadoraBean.valorA}" required="true" label="Valor A"/>
+			+
+			<h:inputText size="12" value="#{calculadoraBean.valorB}" required="true" label="Valor B"/>
+			
+			<br/>
+			<br/>
+			<h:panelGroup rendered="#{calculadoraBean.resultado != null}">
+				<h:outputText value="##{calculadoraBean.nome}, o resultado é "/>
+				<h:outputText value="##{calculadoraBean.resultado}"/>
+			</h:panelGroup>
+			
+			<h:commandButton action="#{calculadoraBean.somar()}" value="Somar"/>
+				
+		</h:form>
+	</h:body>
+</html>
