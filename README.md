@@ -1,3 +1,3 @@
 # Financeiro
 
-Projeto maven, javaee, hibernate e jst
+Projeto maven, javaee, hibernate, jsf e primefaces
